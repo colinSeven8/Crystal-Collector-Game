@@ -1,0 +1,46 @@
+* {
+    box-sizing: border-box;
+ }
+ #headline {
+    background-color: rgb(32,172,194);
+    margin-top: 10px;
+    margin-bottom: 10px;
+    padding: 10px;
+    color: #ffffff;
+    text-align: center;
+ }
+ #instructions {
+    background-color: rgb(169,195,82);
+    padding: 15px;
+ }
+ #random-number {
+    background-color: rgb(234,98,37);
+    margin-top: 10px;
+    margin-bottom: 10px;
+    padding: 10px;
+ }
+ #score {
+    background-color: rgb(234,98,37);
+    margin-top: 10px;
+    margin-bottom: 10px;
+    margin-left: 10px;
+    padding: 10px;
+ }
+ #crystal {
+    margin-top: 5px;
+    margin-bottom: 5px;
+    border-style: solid;
+ }
+ #scoreHeading {
+    background-color: rgb(215,18,249);
+    margin-top: 10px;
+    padding-top: 5px;
+ }
+ #scoreTotal {
+    background-color: rgb(227,88,251);
+    margin-top: 10px;
+    padding-top: 5px;
+ }
+ body {
+    background: url(../images/what-the-hex.png);
+ }
