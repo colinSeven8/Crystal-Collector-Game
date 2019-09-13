@@ -4,80 +4,82 @@
 <html lang="en">
 
 <head>
-  <!-- Required meta tags -->
-  <meta charset="utf-8">
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
 
-  <!--Reset CSS-->
-  <link rel="stylesheet" href="assets/css/reset.css">
+    <!--Reset CSS-->
+    <link rel="stylesheet" href="assets/css/reset.css">
 
-  <!--Media Query-->
-  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <!--Media Query-->
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
 
-  <!-- Bootstrap CSS -->
-  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css"
-    integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css"
+        integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
 
-  <!-- jQuery -->
-  <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+    <!-- jQuery -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
 
-  <!-- Original CSS -->
-  <link rel="stylesheet" type="text/css" href="assets/css/style.css">
+    <!-- Original CSS -->
+    <link rel="stylesheet" type="text/css" href="assets/css/style.css">
 
-  <title>Crystal Collector!</title>
+    <title>Crystal Collector!</title>
 </head>
 
 <body>
     <div class="container container-fluid">
         <div class="row">
-          <div id="headline" class="col-sm-4 col-md-4 col-lg-4 col-xl-4">
-            <h1>Crystal Collector!</h1>
-          </div>
+            <div id="headline" class="col-sm-4 col-md-4 col-lg-4 col-xl-4">
+                <h1>Crystal Collector!</h1>
+            </div>
         </div>
         <div class="row">
             <div id="instructions" class="col-sm-6 col-md-6 col-lg-6 col-xl-6">
                 <p>You will be given a random number at the start of the game.</p>
-                <p>The are four crystals below. By clicking on a crystal you will add a specific amount of points to your total score.</p>
+                <p>The are four crystals below. By clicking on a crystal you will add a specific amount of points to
+                    your total score.</p>
                 <p>You win the game by matching your total score to the random number displayed in the green box.</p>
                 <p>The value of each crystal is hidden from you until you click on it.</p>
-                <p>Each time when the game starts, the game will change the values of each crystal.</p>
+                <p>Each time when the game starts, the game will change the values of each crystal.</p><br /><br />
             </div>
         </div>
         <div class="row">
             <div id="random-number" class="col-sm-3 col-md-3 col-lg-3 col-xl-3">
-                <p>33</p>
+                <h1 id="target-value"></h1><br/>
                 <p><span id="number-to-guess"></span></p>
             </div>
-            <div id="score" class="col-sm-2 col-md-2 col-lg-2 col-xl-2">
-                <p id="wins">Wins:</p>
-                <p id="loses">Loses:</p>
+            <div id="wins-losses" class="col-sm-2 col-md-2 col-lg-2 col-xl-2">
+                <p id="wins-loss-history"></p>
+                <h4 id="wins"></h4>
+                <h4 id="losses"></h4>
             </div>
         </div>
         <div class="row">
-            <div class="col-sm-2 col-md-2 col-lg-2 col-xl-2">
-                <img src="assets/images/bluecrystal.png" alt="Blue Crystal" id="crystal">
+            <div class="button col-sm-2 col-md-2 col-lg-2 col-xl-2">
+                <img src="assets/images/bluecrystal.png" alt="Blue Crystal" id="crystal-blue">
             </div>
-            <div class="col-sm-2 col-md-2 col-lg-2 col-xl-2">
-                    <img src="assets/images/greencrystal.png" alt="Green Crystal" id="crystal">
+            <div class="button col-sm-2 col-md-2 col-lg-2 col-xl-2">
+                <img src="assets/images/greencrystal.png" alt="Green Crystal" id="crystal-green">
             </div>
-            <div class="col-sm-2 col-md-2 col-lg-2 col-xl-2">
-                <img src="assets/images/orangecrystal.png" alt="Orange Crystal" id="crystal">
+            <div class="button col-sm-2 col-md-2 col-lg-2 col-xl-2">
+                <img src="assets/images/orangecrystal.png" alt="Orange Crystal" id="crystal-orange">
             </div>
-            <div class="col-sm-2 col-md-2 col-lg-2 col-xl-2">
-                    <img src="assets/images/purplecrystal.png" alt="Purple Crystal" id="crystal">
-            </div>
-        </div>
-        <div class="row">
-            <div id="scoreHeading" class="col-sm-3">
-                <p>32</p>
+            <div class="button col-sm-2 col-md-2 col-lg-2 col-xl-2">
+                <img src="assets/images/purplecrystal.png" alt="Purple Crystal" id="crystal-purple">
             </div>
         </div>
         <div class="row">
-            <div id="scoreTotal" class="col-sm-3">
-                <p id="totalScore">Total Score</p>
+            <div id="score" class="col-sm-3">
+                <p>Your total score is:</p>
             </div>
         </div>
-      </div>
- <script type="text/javascript" src="assets/javascript/game.js"></script>
- </body>
+        <div class="row">
+            <div id="score" class="col-sm-3">
+                <h1 id="total-score">0</h1>
+            </div>
+        </div>
+    </div>
+    <script type="text/javascript" src="assets/javascript/game.js"></script>
+</body>
 
 </html>

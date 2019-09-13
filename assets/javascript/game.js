@@ -27,64 +27,125 @@ let crystals = [
 
 //Set up globals.
 let runningTotal = 0;
-let valueGuessed = 0;
 let targetValue = 0;
 let wins = 0;
 let losses = 0;
-let gameOver = false;
 
 main();
 
 //Run all game functionality.
 function main() {
 
+    init();
+
     $(document).ready(function () {
 
-        updateRunningTotal();
-
-        if (runningTotal === targetValue) {
-            gameWin();
-        }
-        else if (runningTotal > targetValue) {
-            gameLoss();
-        }
+        runGame();
     });
 }
 
-function updateRunningTotal() {
+//Processes all game interaction
+function runGame() {
 
-$(".button").on('click', function() {
-    
-    let btn = $(this.attr("id"));
-    runningTotal += ;
-})
+    $(".button").click(function (e) {
+
+        let btn = e.target.id;
+
+        switch (btn) {
+
+            case 'crystal-purple':
+                runningTotal += crystals[0].value;
+                $("#total-score").text(runningTotal);
+                break;
+            case 'crystal-orange':
+                runningTotal += crystals[1].value;
+                $("#total-score").text(runningTotal);
+                break;
+            case 'crystal-green':
+                runningTotal += crystals[2].value;
+                $("#total-score").text(runningTotal);
+                break;
+            case 'crystal-blue':
+                runningTotal += crystals[3].value;
+                $("#total-score").text(runningTotal);
+                break;
+            default: alert("Something went wrong!");
+        }
+        checkStatus(runningTotal);
+    });
 }
 
+//See if the game has ended
+function checkStatus(score) {
+
+    if (score === targetValue) {
+        gameWin();
+    }
+    else if (score > targetValue) {
+        gameLoss();
+    }
+}
+
+//You won!!
 function gameWin() {
 
-
+    $("#wins-loss-history").text("You won!!");
+    wins++;
+    resetGame();
 }
 
+//You lost!!
 function gameLoss() {
 
-
+    $("#wins-loss-history").text("You lost!!");
+    losses++;
+    resetGame();
 }
 
-function assignRandVals() {
+//Reset the game values
+function resetGame() {
 
-    crystals.forEach(element => {
-        crystals.value = randomHiddenValue();
-    });
+    runningTotal = 0;
+    targetValue = 0;
+    $("#total-score").text(targetValue);
+
+    init();
 }
 
-//Returns a random hidden value for a crystal
-function randomHiddenValue() {
+//Assigns all random values needed for the game, as well as some user-end display
+function init() {
 
-    return Array.from({length: 4}, () => Math.floor(Math.random() * 12) + 1);
+    //Pre-written possible values for each crystal
+    let temp = [1, 3, 5, 10];
+    //shuffle the indeces
+    temp.sort(() => Math.random() - 0.5);
+
+    //Loop through the crystals object and assign values to each crystal
+    for (let i = 0; i < crystals.length; i++) {
+
+        crystals[i].value = temp[i];
+    }
+    //Assign a random target value
+    targetValue = randomTargetValue();
+    $("#target-value").text(targetValue);
+
+    $("#wins").text("Wins: " + wins);
+    $("#losses").text("Losses: " + losses);
+}
+
+//Returns a random number
+function randomNumber(upperLimit, lowerLimit) {
+
+    return Math.floor((Math.random() * upperLimit) + lowerLimit);
+}
+//Returns a random index for the crystals object
+function randomHiddenValueIndex() {
+
+    return randomNumber(3, 0);
 }
 
 //Returns a random target value
 function randomTargetValue() {
 
-    return Math.floor((Math.random() * 120) + 19);
+    return randomNumber(120, 19);
 }
